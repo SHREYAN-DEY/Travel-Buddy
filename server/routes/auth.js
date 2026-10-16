@@ -1,4 +1,5 @@
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import authController from '../controllers/authController.js';
 import authMiddleware from '../middleware/authMw.js';
 import { body, validationResult } from 'express-validator';
