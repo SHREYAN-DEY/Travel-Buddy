@@ -36,7 +36,12 @@ export default function Home() {
                     </div>
                     <div className="lg:col-span-5 relative">
                         <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
-                            <img src="https://unsplash.com/photos/light-trails-on-zion-national-park-road-c02GSy_ayDg" alt="image" className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000" />
+                            <img
+                                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                alt="Light trails on Zion National Park road"
+                                className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                            />
+
                         </div>
                     </div>
                 </div>
