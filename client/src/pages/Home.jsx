@@ -1,9 +1,25 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import { motion } from 'framer-motion'
-import { ArrowRight, Play } from 'lucide-react'
+import React, {useEffect, useState} from 'react';
+import Navbar from '../components/Navbar';
+import { motion } from 'framer-motion';
+import { ArrowRight, Play } from 'lucide-react';
+
+import hero1 from '../assets/hero1.jpg';
+import hero2 from '../assets/hero2.jpg';
+import hero3 from '../assets/hero3.jpg';
+
+const images = [hero1, hero2, hero3];
 
 export default function Home() {
+    // Hero section image slideshow
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div>
             <Navbar />
@@ -36,12 +52,7 @@ export default function Home() {
                     </div>
                     <div className="lg:col-span-5 relative">
                         <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
-                            <img
-                                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                                alt="Light trails on Zion National Park road"
-                                className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
-                            />
-
+                            <img src={images[currentIndex]} alt="grand canyon img" className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000" />
                         </div>
                     </div>
                 </div>
