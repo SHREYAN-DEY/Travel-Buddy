@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 
-import hero1 from '../assets/hero1.jpg';
-import hero2 from '../assets/hero2.jpg';
-import hero3 from '../assets/hero3.jpg';
+import hero1 from '../asset/hero/hero1.jpg';
+import hero2 from '../asset/hero/hero2.jpg';
+import hero3 from '../asset/hero/hero3.jpg';
 
 const images = [hero1, hero2, hero3];
 
@@ -14,9 +14,11 @@ export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
+        const SLIDE_DURATION = 12000; // 12 seconds per slide
+
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000);
+        }, SLIDE_DURATION);
         return () => clearInterval(interval);
     }, []);
 
@@ -26,6 +28,7 @@ export default function Home() {
             {/* Hero Section */}
             <section className="relative pt-44 pb-32 px-6 border border-white/5">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/real-carbon-fibre.png')] opacity-20 pointer-events-none" />
+                {/* Tagline */}
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
                     <div className="lg:col-span-7">
                         <motion.div
@@ -50,9 +53,22 @@ export default function Home() {
                             </div>
                         </motion.div>
                     </div>
+                    {/* Hero image */}
                     <div className="lg:col-span-5 relative">
                         <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
-                            <img src={images[currentIndex]} alt="grand canyon img" className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000" />
+                            <img
+                                src={images[currentIndex]}
+                                alt="grand canyon img"
+                                className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                            />
+                            <div className="absolute bottom-8 left-8 right-8 p-8 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <span className="text-[10px] font-black uppercase text-blue-400 tracking-widest">Operation Sector</span>
+                                </div>
+                                <p className="text-2xl font-black italic text-white uppercase">
+                                    Patagonia Ride Expedition
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
