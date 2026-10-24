@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { motion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
+import heroImage from "../asset/hero/hero3.jpg"
 
 export default function Home() {
     return (
@@ -37,8 +38,8 @@ export default function Home() {
                     <div className="lg:col-span-5 relative">
                         <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                                alt="Light trails on Zion National Park road"
+                                src={heroImage}
+                                alt="Palm Treesg"
                                 className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
                             />
 
