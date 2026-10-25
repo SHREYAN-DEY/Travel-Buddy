@@ -1,78 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 
-import hero1 from '../asset/hero/hero1.jpg';
-import hero2 from '../asset/hero/hero2.jpg';
-import hero3 from '../asset/hero/hero3.jpg';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import TacticalModule from '../components/TacticalModule';
 
-const images = [hero1, hero2, hero3];
+const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+};
 
 export default function Home() {
-    // Hero section image slideshow
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const SLIDE_DURATION = 12000; // 12 seconds per slide
-
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, SLIDE_DURATION);
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <div>
             <Navbar />
-            {/* Hero Section */}
-            <section className="relative pt-44 pb-32 px-6 border border-white/5">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/real-carbon-fibre.png')] opacity-20 pointer-events-none" />
-                {/* Tagline */}
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-                    <div className="lg:col-span-7">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                        >
-                            <h1 className="text-7xl md:text-[110px] font-black tracking-tight leading-[0.85] text-white uppercase italic mb-10">
-                                Future of <br /> {" "}
-                                <span className="text-blue-600 not-italic">Exploration</span>
-                            </h1>
-                            <p className="text-xl text-gray-500 max-w-xl mb-12 font-medium">
-                                The world's first autonomous travel architect. We don't just book trips; we synthesize experiences using real-time global intelligence.
-                            </p>
-                            <div className="flex flex-wrap gap-6">
-                                <a href="#" className="px-12 py-6 bg-blue-500 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 transition-all shadow-[0_0_30px_rgba(37,99,235,0.2)] flex items-center gap-3">
-                                    Initialize Mission <ArrowRight size={18} />
-                                </a>
-                                <button className="px-12 py-6 border-white/10 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-white/5 transition-all flex items-center gap-3">
-                                    <Play size={16} fill="correctColor" />
-                                    System Demo
-                                </button>
-                            </div>
-                        </motion.div>
-                    </div>
-                    {/* Hero image */}
-                    <div className="lg:col-span-5 relative">
-                        <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
-                            <img
-                                src={images[currentIndex]}
-                                alt="grand canyon img"
-                                className="w-full h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
-                            />
-                            <div className="absolute bottom-8 left-8 right-8 p-8 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <span className="text-[10px] font-black uppercase text-blue-400 tracking-widest">Operation Sector</span>
-                                </div>
-                                <p className="text-2xl font-black italic text-white uppercase">
-                                    Patagonia Ride Expedition
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <Hero />
+            <TacticalModule/>
+
+            {/* Tactical Modules Updates */}
+            {/* <section className="py-32 px-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <motion.div {...fadeInUp} className="md:col-span-8 bg-[#08080a] border border-white/5 rounded-[3rem] p-12 group overflow-hidden relative">
+                    <div className=""></div>
+                    </motion.div>
                 </div>
-            </section>
+            </section> */}
         </div>
-    )
+    );
 }

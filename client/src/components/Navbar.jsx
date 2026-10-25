@@ -44,9 +44,9 @@ export default function Navbar() {
                     </a>
 
                     {/* Navigation Conditional Based */}
-                    <div className='hidden md:flex items-center gap-1 bg-white/[0.0.3] p-1 rounded-xl border border-white/5 backdrop-blur-md'>
+                    <div className='hidden md:flex items-center gap-1 bg-black/20 p-2 rounded-xl border border-white/5 backdrop-blur-sm '>
                         {navLinks.map(({ path, label, icon }) => (
-                            <a href='#' className={`flex items-center gap-2 px-5 py-2 rounded-lg text-[9px] font-black transition-all duration-300 tracking-[0.15em]`}>
+                            <a href='#' className={`flex items-center gap-2 px-5 py-2 rounded-lg text-[9px] font-black transition-all duration-300 tracking-[0.15em] hover:text-blue-200 hover:drop-shadow-[0_0_25px_rgba(183, 243, 255, 0.68)]`}>
                                 {icon}
                                 {label}
                             </a>
@@ -58,7 +58,7 @@ export default function Navbar() {
                         {/* Conditional Rendering */}
                         <>
                             {/* Profile */}
-                            <div className='hidden lg:flex items-center gap-3 bg-white/[0.02] border border-white/5 py-1.5 pl-2 pr-4 rounded-xl hover:bg-white/[0.5] transition-all cursor-pointer group-user'>
+                            <div className='hidden lg:flex items-center gap-3 bg-white/2 border border-white/5 py-1.5 pl-2 pr-4 rounded-xl hover:bg-white/50 transition-all cursor-pointer group-user'>
                                 <div className='w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center border'>
                                     <User size={12} className='text-gray-400 group-hover:/user:text-blue-500' />
                                 </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
                             </div>
 
                             {/* Session logout */}
-                            <button className="w-10 h-10 rounded-xl bg-white/[0.02] text-gray-500 hover:text-rose-500 hover:bg-rose-500/10 border-white/5 hover:border-rose-500/20 transition-all flex items-center justify-center" title="Terminate Session">
+                            <button className="w-10 h-10 rounded-xl bg-white/2 text-gray-500 hover:text-rose-500 hover:bg-rose-500/10 border-white/5 hover:border-rose-500/20 transition-all flex items-center justify-center" title="Terminate Session">
                                 <LogOut size={16} />
                             </button>
 
