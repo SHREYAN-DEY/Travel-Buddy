@@ -58,7 +58,7 @@ export default function Navbar() {
                         {/* Conditional Rendering */}
                         <>
                             {/* Profile */}
-                            <div className='hidden lg:flex items-center gap-3 bg-white/2 border border-white/5 py-1.5 pl-2 pr-4 rounded-xl hover:bg-white/50 transition-all cursor-pointer group-user'>
+                            <div className='hidden lg:flex items-center gap-3 bg-black/20 backdrop-blur-sm border border-white/5 py-1.5 pl-2 pr-4 rounded-xl hover:bg-white/50 transition-all cursor-pointer group-user'>
                                 <div className='w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center border'>
                                     <User size={12} className='text-gray-400 group-hover:/user:text-blue-500' />
                                 </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
                             </div>
 
                             {/* Session logout */}
-                            <button className="w-10 h-10 rounded-xl bg-white/2 text-gray-500 hover:text-rose-500 hover:bg-rose-500/10 border-white/5 hover:border-rose-500/20 transition-all flex items-center justify-center" title="Terminate Session">
+                            <button className="w-10 h-10 rounded-xl bg-black/20 backdrop-blur-sm text-gray-400 hover:text-rose-500 hover:bg-rose-500/10 border-white/5 hover:border-rose-500/20 transition-all flex items-center justify-center" title="Terminate Session">
                                 <LogOut size={16} />
                             </button>
 
@@ -80,7 +80,7 @@ export default function Navbar() {
                             </button>
                         </>
                         {/* Else */}
-                        <a href="#" className="bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] flex items-center gap-2">
+                        <a href="#" className="bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] flex items-center gap-2">
                             Login
                             <Activity size={12} className="animate-pulse" />
                         </a>
