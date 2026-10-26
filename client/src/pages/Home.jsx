@@ -5,7 +5,9 @@ import { ArrowRight, Play } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import TacticalModule from '../components/TacticalModule';
-import VerticalHighlight from '../components/VerticalHighlight';
+// import VerticalHighlight from '../components/VerticalHighlight';
+// import Encryption from '../components/Encryption';
+import Highlights from '../components/Highlights';
 
 
 function Home() {
@@ -16,9 +18,8 @@ function Home() {
             <Hero />
             {/* Tactical Modules Updates */}
             <TacticalModule />
-            {/* Vertical Highlights */}
-            <VerticalHighlight />
-
+            {/* VerticalH. + Encry. */}
+            <Highlights />
 
         </div>
     );
