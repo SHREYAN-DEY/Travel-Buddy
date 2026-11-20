@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
@@ -25,28 +24,28 @@ export default function Hero() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative pt-44 pb-32 px-6 border border-white/5">
+            <section className="relative pt-32 sm:pt-44 pb-20 sm:pb-32 px-4 sm:px-6 border border-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/real-carbon-fibre.png')] opacity-25 pointer-events-none" />
                 {/* Tagline */}
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="lg:col-span-7">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                         >
-                            <h1 className="text-7xl md:text-[110px] font-black tracking-tight leading-[0.85] text-white uppercase italic mb-10">
+                            <h1 className="text-5xl sm:text-7xl md:text-[110px] font-black tracking-tight leading-[0.9] sm:leading-[0.85] text-white uppercase italic mb-6 sm:mb-10">
                                 Future of <br /> {" "}
                                 <span className="text-blue-600 not-italic">Exploration</span>
                             </h1>
-                            <p className="text-xl text-gray-500 max-w-xl mb-12 font-medium">
+                            <p className="text-base sm:text-xl text-gray-500 max-w-xl mb-8 sm:mb-12 font-medium">
                                 The world's first autonomous travel architect. We don't just book trips; we synthesize experiences using real-time global intelligence.
                             </p>
-                            <div className="flex flex-wrap gap-6">
-                                <a href="#" className="px-12 py-6 bg-blue-500 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-blue-500/90 transition-all shadow-[0_0_30px_rgba(37,99,235,0.2)] flex items-center gap-3 ">
+                            <div className="flex flex-wrap gap-4 sm:gap-6">
+                                <a href="#" className="w-full sm:w-auto justify-center px-8 sm:px-12 py-4 sm:py-6 bg-blue-500 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-blue-500/90 transition-all shadow-[0_0_30px_rgba(37,99,235,0.2)] flex items-center gap-3">
                                     Initialize Mission <ArrowRight size={18} />
                                 </a>
-                                <button className="px-12 py-6 border-white/10 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-white/5 transition-all flex items-center gap-3">
-                                    <Play size={16} fill="correctColor" />
+                                <button className="w-full sm:w-auto justify-center px-8 sm:px-12 py-4 sm:py-6 border border-white/10 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-white/5 transition-all flex items-center gap-3">
+                                    <Play size={16} />
                                     System Demo
                                 </button>
                             </div>
@@ -55,17 +54,17 @@ export default function Hero() {
 
                     {/* Hero image */}
                     <div className="lg:col-span-5 relative">
-                        <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
+                        <div className="relative rounded-3xl sm:rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0a0b] shadow-2xl">
                             <img
                                 src={images[currentIndex]}
                                 alt="grand canyon img"
-                                className="w-full h-150 object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                                className="w-full h-[380px] sm:h-[480px] lg:h-[600px] object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
                             />
-                            <div className="absolute bottom-8 left-8 right-8 p-8 bg-black/20 backdrop-blur-sm rounded-3xl border border-white/10">
-                                <div className="flex items-center gap-3 mb-2">
+                            <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 p-5 sm:p-8 bg-black/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/10">
+                                <div className="flex items-center gap-3 mb-1 sm:mb-2">
                                     <span className="text-[10px] font-black uppercase text-blue-400 tracking-widest">Operation Sector</span>
                                 </div>
-                                <p className="text-2xl font-black italic text-white uppercase">
+                                <p className="text-lg sm:text-2xl font-black italic text-white uppercase">
                                     Patagonia Ride Expedition
                                 </p>
                             </div>
