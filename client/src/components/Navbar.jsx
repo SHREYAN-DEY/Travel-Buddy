@@ -52,7 +52,7 @@ export default function Navbar() {
                     </a>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-xl border border-white/5 backdrop-blur-md">
+                    <div className="hidden md:flex items-center gap-1 bg-white/3 p-1 rounded-xl border border-white/5 backdrop-blur-md">
                         {navLinks.map(({ path, label, icon }) => (
                             <a
                                 key={path}
@@ -69,7 +69,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-2 sm:gap-3 shrink-0">
 
                         {/* Admin Profile */}
-                        <div className="hidden lg:flex items-center justify-between gap-4 min-w-[100px] bg-white/[0.02] border border-white/5 py-1.5 px-2.5 rounded-xl hover:bg-white/5 transition-all cursor-pointer group/user">
+                        <div className="hidden lg:flex items-center justify-between gap-4 min-w-25 bg-white/2 border border-white/5 py-1.5 px-2.5 rounded-xl hover:bg-white/5 transition-all cursor-pointer group/user">
                             <div className="w-8 h-8 shrink-0 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
                                 <User
                                     size={14}
@@ -89,7 +89,7 @@ export default function Navbar() {
                             type="button"
                             aria-label="Terminate Session"
                             title="Terminate Session"
-                            className="hidden sm:flex w-10 h-10 shrink-0 rounded-xl bg-white/[0.02] text-gray-500 hover:text-rose-500 hover:bg-rose-500/10 border border-white/5 hover:border-rose-500/20 transition-all items-center justify-center"
+                            className="hidden sm:flex w-10 h-10 shrink-0 rounded-xl bg-white/2 text-gray-500 hover:text-rose-500 hover:bg-rose-500/10 border border-white/5 hover:border-rose-500/20 transition-all items-center justify-center"
                         >
                             <LogOut size={16} />
                         </button>
@@ -123,7 +123,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="md:hidden absolute top-[80px] left-4 right-4 sm:left-6 sm:right-6 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/10 p-4 shadow-2xl pointer-events-auto"
+                        className="md:hidden absolute top-20 left-4 right-4 sm:left-6 sm:right-6 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/10 p-4 shadow-2xl pointer-events-auto"
                     >
                         <div className="flex flex-col gap-1">
                             {navLinks.map(({ path, label, icon }) => (
