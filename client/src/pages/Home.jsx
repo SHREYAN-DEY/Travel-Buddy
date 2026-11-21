@@ -328,20 +328,20 @@ function Home() {
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-8 sm:gap-12 text-[10px] font-black text-gray-600 uppercase tracking-[0.3em] sm:tracking-[0.4em]">
-                        <a href="#safety" className="hover:text-blue-500 transition-colors">
+                        <a href="#safety" className="hover:text-blue-600 transition-all duration-700">
                             Safety
                         </a>
 
-                        <a href="#network" className="hover:text-blue-500 transition-colors">
+                        <a href="#network" className="hover:text-blue-600 transition-all duration-700">
                             Network
                         </a>
 
-                        <a href="#privacy" className="hover:text-blue-500 transition-colors">
+                        <a href="#privacy" className="hover:text-blue-600 transition-all duration-700">
                             Privacy
                         </a>
                     </div>
 
-                    <p className="text-[10px] font-bold text-gray-600 uppercase tracking-widest text-center">
+                    <p className="text-[10px] font-bold text-gray-600 uppercase tracking-widest text-center hover:text-white/90 transition-all duration-700">
                         &copy; 2026 Wander AI // Distributed Architecture // Encrypted Mission Data
                     </p>
 

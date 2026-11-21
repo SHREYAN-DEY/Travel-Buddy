@@ -1,7 +1,4 @@
 import React from 'react'
-import Navbar from "../components/Navbar";
-import HUDMetric from "../components/HUDMetric";
-import { motion } from "framer-motion";
 import { 
   LayoutDashboard, 
   Wallet, 
@@ -17,8 +14,12 @@ import {
   LogIn, 
   Zap,  
   } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+import HUDMetric from "../components/HUDMetric";
 import StatsBox from '../components/StatBox';
+import Navbar from "../components/Navbar";
 
 function Dashboard() {
   return (
