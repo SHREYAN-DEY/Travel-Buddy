@@ -26,7 +26,7 @@ export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 z-[100] w-full px-4 sm:px-6 py-4 pointer-events-none">
+        <nav className="fixed top-0 left-0 z-100 w-full px-4 sm:px-6 py-4 pointer-events-none">
             <div className="w-full max-w-[1600px] mx-auto px-3 sm:px-6 h-14 rounded-2xl transition-all duration-500 border border-transparent pointer-events-auto bg-transparent">
                 <div className="flex items-center justify-between gap-2 sm:gap-4 h-full">
 
@@ -54,7 +54,7 @@ export default function Navbar() {
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1 bg-white/3 p-1 rounded-xl border border-white/5 backdrop-blur-sm">
                         {navLinks.map(({ path, label, icon }) => (
-                            <a key={path} href={path} className="flex items-center gap-2 px-4 lg:px-5 py-2 rounded-lg text-[9px] font-black text-gray-400 transition-all duration-500 tracking-[0.15em] hover:bg-white/5 hover:text-white">
+                            <a key={path} href={path} className="flex items-center gap-2 px-4 lg:px-5 py-3 rounded-lg text-[9px] font-black text-gray-400 transition-all duration-500 tracking-[0.15em] hover:bg-white/5 hover:text-white">
                                 {icon}
                                 {label}
                             </a>

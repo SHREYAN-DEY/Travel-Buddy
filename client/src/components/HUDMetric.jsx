@@ -1,4 +1,3 @@
-
 import React from "react";
 
 function HUDMetric({ icon: Icon, label, value, color = "text-white" }) {
