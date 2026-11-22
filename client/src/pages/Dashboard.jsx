@@ -157,12 +157,8 @@ function Dashboard() {
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0 * 0.1 }}
-              >
-                <a
-                  href="#"
-                  className="flex items-center justify-between p-6 bg-white/2 border border-white/5 rounded-3xl hover:bg-white/4 transition-all group"
-                >
+                transition={{ delay: 0 * 0.1 }}>
+                <a href="#" className="flex items-center justify-between p-6 bg-white/2 border border-white/5 rounded-3xl hover:bg-white/4 transition-all group">
                   <div className="flex items-center gap-5">
                     <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center font-black text-[#4285f4]">
                       Trip Destination
@@ -177,10 +173,7 @@ function Dashboard() {
                       </span>
                     </div>
                   </div>
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-700 group-hover:text-white transition-all"
-                  />
+                  <ArrowRight size={20} className="text-gray-700 group-hover:text-white transition-all"/>
                 </a>
               </motion.div>
             </div>
