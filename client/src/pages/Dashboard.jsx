@@ -99,13 +99,7 @@ function Dashboard() {
               />
             </div>
           </div>
-          <StatsBox
-            icon={Zap}
-            label="System Credits"
-            value="1,250"
-            sub="Compute units"
-            color="text-yellow-400"
-          />
+          <StatsBox icon={Zap} label="System Credits" value="1,250" sub="Compute units" color="text-yellow-400"/>
 
           {/* Main Journey Action */}
           <div className="lg:col-span-2 bg-linear-to-br from-[#4285f4] to-[#1a73e8] rounded-[2.5rem] p-10 flex flex-col justify-between group relative overflow-hidden transition-all shadow-[0_20px_50px_rgba(66,133,243,0.3)] cursor-pointer">
@@ -113,10 +107,7 @@ function Dashboard() {
             {/* <Link className="absolute inset-0 z-20" /> */}
             <a href="/plan" className="absolute inset-0 z-20" />
             <div className="relative z-10">
-              <Compass
-                size={40}
-                className="text-white mb-8 group-hover:rotate-45 transition-all duration-500"
-              />
+              <Compass size={40} className="text-white mb-8 group-hover:rotate-45 transition-all duration-500"/>
               <h2 className="text-4xl font-black tracking-tighter text-white mb-2">
                 New Itinerary
               </h2>
@@ -204,23 +195,15 @@ function Dashboard() {
                 </h3>
                 <Wallet size={14} className="text-gray-600" />
               </div>
+              
               <div className="space-y-6">
                 {/* Map Method */}
-                <ActivityItem
-                  time="Active"
-                  action="Dynamic"
-                  desc="Budget"
-                  dot="bg-green-500"
-                />
+                <ActivityItem time="Active" action="Dynamic" desc="Budget" dot="bg-green-500"/>
 
                 {/* Conditional Rendering */}
-                <ActivityItem
-                  time="Now"
-                  action="Syncing Budgets"
-                  desc="No financial data found"
-                  dot="bg-yellow-500"
-                />
+                <ActivityItem time="Now" action="Syncing Budgets" desc="No financial data found" dot="bg-yellow-500"/>
               </div>
+
             </div>
             <div className="bg-linear-to-br from-zinc-900 to-black border border-white/5 rounded-[2.5rem] p-8 group">
               <div className="flex items-center gap-3 mb-6">
