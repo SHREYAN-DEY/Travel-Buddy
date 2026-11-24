@@ -14,6 +14,7 @@ import {
   User,
   Zap,
   TrendingUp,
+  ChevronDown,
 } from "lucide-react";
 
 // Animation Utilities
@@ -83,15 +84,17 @@ function BudgetEstimator() {
 
             {/* Budget Tier Selector */}
             <ControlField label="Operation Tier">
-              <select className="w-full appearance-none bg-white/5 border border-white/10 rounded-xl py-4 pl-4 pr-10 font-bold text-blue-500 outline-none text-sm cursor-pointer">
-                <option value="Budget" className="bg-[#0a0a0c] text-white ">BUDGET</option>
-                <option value="Mid-range" className="bg-[#0a0a0c] text-white">STANDARD</option>
-                <option value="Luxury" className="bg-[#0a0a0c] text-white">PREMIUM</option>
-              </select>
-              <ChevronDown
-                size={16}
-                className="absolute right-5 top-1/2 -translate-y-1/2 text-blue-500 pointer-events-none"
-              />
+              <div className="relative">
+                <select className="w-full appearance-none bg-white/5 border border-white/10 rounded-xl py-4 pl-4 pr-10 font-bold text-blue-500 outline-none text-sm cursor-pointer">
+                  <option value="Budget" className="bg-[#0a0a0c] text-white ">BUDGET</option>
+                  <option value="Mid-range" className="bg-[#0a0a0c] text-white">STANDARD</option>
+                  <option value="Luxury" className="bg-[#0a0a0c] text-white">PREMIUM</option>
+                </select>
+                <ChevronDown
+                  size={16}
+                  className="absolute right-5 top-1/2 -translate-y-1/2 text-blue-500 pointer-events-none"
+                />
+              </div>
             </ControlField>
 
             {/* Form Submit / Calculation Trigger */}
