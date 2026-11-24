@@ -6,6 +6,8 @@ import Navbar from "../components/Navbar";
 import {
   Activity,
   Calendar,
+  ChevronDown,
+  ChevronUp,
   Cpu,
   Globe,
   PenLine,
@@ -69,7 +71,7 @@ function BudgetEstimator() {
               <ControlField label="Cycle Duration">
                 <div className="relative">
                   <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
-                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 font-bold text-white outline-none focus:border-blue-500/50 uppercase text-sm" />
+                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 font-bold text-white outline-none focus:border-blue-500/50 uppercase text-sm scheme-dark" />
                 </div>
               </ControlField>
 
@@ -77,7 +79,7 @@ function BudgetEstimator() {
               <ControlField label="Unit Count">
                 <div className="relative">
                   <User size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600" />
-                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 font-bold text-white outline-none focus:border-blue-500/50 uppercase text-sm" />
+                  <input type="number" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 font-bold text-white outline-none focus:border-blue-500/50 uppercase text-sm scheme-dark" />
                 </div>
               </ControlField>
             </div>
@@ -161,10 +163,7 @@ function BudgetEstimator() {
                 {/* Expenditure Velocity Breakdown (Bar Chart Card) */}
                 <div className="bg-white/2 border border-white/5 rounded-[2.5rem] p-10">
                   <div className="flex items-center gap-2 mb-8">
-                    <TrendingUp
-                      size={18}
-                      className="text-blue-500"
-                    />
+                    <TrendingUp size={18} className="text-blue-500" />
                     <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-500">
                       Expenditure Velocity
                     </h3>
