@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-// import BudgetEstimator from "./pages/BudgetEstimator";
+import BudgetEstimator from "./pages/BudgetEstimator";
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       {/* <Home /> */}
       {/* <Register /> */}
       {/* <Login /> */}
-      <Dashboard />
-      {/* <BudgetEstimator /> */}
+      {/* <Dashboard /> */}
+      <BudgetEstimator />
     </div>
   );
 }
