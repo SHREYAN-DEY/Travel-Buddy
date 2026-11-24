@@ -90,10 +90,7 @@ function BudgetEstimator() {
                   <option value="Mid-range" className="bg-[#0a0a0c] text-white">STANDARD</option>
                   <option value="Luxury" className="bg-[#0a0a0c] text-white">PREMIUM</option>
                 </select>
-                <ChevronDown
-                  size={16}
-                  className="absolute right-5 top-1/2 -translate-y-1/2 text-blue-500 pointer-events-none"
-                />
+                <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-blue-500 pointer-events-none"/>
               </div>
             </ControlField>
 
