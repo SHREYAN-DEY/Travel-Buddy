@@ -16,7 +16,6 @@ import {
   User,
   Zap,
   TrendingUp,
-  ChevronDown,
 } from "lucide-react";
 
 // Animation Utilities
