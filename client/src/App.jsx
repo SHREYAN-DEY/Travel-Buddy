@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import BudgetEstimator from "./pages/BudgetEstimator";
+import SavedTrips from "./pages/SavedTrips";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <Register /> */}
       {/* <Login /> */}
       {/* <Dashboard /> */}
-      <BudgetEstimator />
+      {/* <BudgetEstimator /> */}
+      <SavedTrips />
     </div>
   );
 }
