@@ -4,8 +4,7 @@ function StatsBox({ icon: Icon, label, value, sub, color }) {
   return (
     <div className="bg-[#111113] border border-white/5 rounded-[2.5rem] p-8 flex flex-col justify-between  hover:border-white/20 transition-all">
         <div 
-            className={'w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center ${color} mb-8 group-hover:scale-110 transition-transform'}
-        >
+            className={`w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center ${color} mb-8 group-hover:scale-110 transition-transform`}>
           <Icon size={24} />
         </div>
         <div>
