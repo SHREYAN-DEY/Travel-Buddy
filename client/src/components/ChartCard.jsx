@@ -113,9 +113,42 @@ export function BudgetBarChart({ breakdown }) {
       </h3>
 
       {/* Bar Chart Container */}
+      {/*
       <div className="h-80 w-full">
+         Chart 
+      </div>
+      */}
+
+      {/* Chart Canvas & Center Overlay Readout(remove if needed) */}
+      <div className="h-87.5 w-full relative">
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+          <span className="text-gray-600 text-[10px] font-black uppercase tracking-[0.3em] mb-1">
+            Total Asset Debt
+          </span>
+          <span className="text-5xl font-black text-white tracking-tighter italic">
+            Dummy Data
+          </span>
+        </div>
+
         {/* Chart */}
       </div>
+
+      {/* Bottom Category Legend Grid(remove if needed) */}
+      <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-10 pt-10 border-t border-white/5">
+        {/* Map Method */}
+        <div className="flex items-center justify-between group/item">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 border border-white/10" />
+            <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest group-hover/item:text-white transition-all">
+              Item Name
+            </span>
+          </div>
+          <span className="text-sm font-black text-white font-mono tracking-tighter">
+            Dummy Data
+          </span>
+        </div>
+      </div>
+      
     </div>
   );
 }

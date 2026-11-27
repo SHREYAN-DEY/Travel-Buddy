@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import BudgetEstimator from "./pages/BudgetEstimator";
 import SavedTrips from "./pages/SavedTrips";
+import TripDetail from "./pages/TripDetail";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <Login /> */}
       {/* <Dashboard /> */}
       {/* <BudgetEstimator /> */}
-      <SavedTrips />
+      {/* <SavedTrips /> */}
+      <TripDetail />
     </div>
   );
 }
