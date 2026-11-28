@@ -56,7 +56,7 @@ const register = async (req, res) => {
             status: "success",
             message: "User registered successfully",
             token,
-            data: filterUserResponse(newUser),
+            user: filterUserResponse(newUser),
         });
 
     }

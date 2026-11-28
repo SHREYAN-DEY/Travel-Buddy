@@ -9,12 +9,64 @@ import {
     Lock,
     Zap,
     MapPin,
+    Loader2,
+    ChevronRight,
 } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import TacticalInput from "../components/TacticalInput";
+import { useAuth } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
+
+    const { register } = useAuth();
+    const navigate = useNavigate();
+
+    const [form, setFormData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        country: "IND"
+    });
+
+    const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+
+    // validate the input
+    const validate = () => {
+        const errs = {};
+        if (form.name.length < 2) errs.name = "ENTRY_REQUIRED: NAME";
+        if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "INVALID_UPLINK: EMAIL";
+        if (form.password.length < 6) errs.password = "SECURITY_BRANCH: PASSKEY_TOO_SHORT";
+        return errs;
+    };
+
+    // handels form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const errs = validate();
+        if (Object.keys(errs).length > 0) {
+            setErrors(errs);
+            return;
+        }
+        setErrors({});
+        setLoading(true);
+
+        try {
+            await register(form);
+            toast.success(`Welcome aboard, ${form.name.split(" ")[0]}`);
+            navigate("/dashboard");
+        }
+        catch (err) {
+            setErrors({ general: err.response?.data?.error || "Connection Failure ..." })
+        }
+        finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-[#020203] flex flex-col lg:flex-row font-sans selection:bg-blue-600 selection:text-white text-gray-400 overflow-x-hidden">
 
@@ -26,14 +78,14 @@ function Register() {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#020203] via-transparent to-[#020203]" />
 
                 {/* Brand Header */}
-                <a href="#" className="relative z-10 flex items-center gap-3 group">
+                <Link to="/" className="relative z-10 flex items-center gap-3 group">
                     <div className="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-xl flex items-center justify-center border border-white/10 group-hover:border-blue-500 transition-all duration-500">
                         <Globe size={24} className="text-blue-600" />
                     </div>
                     <span className="text-2xl font-black italic uppercase tracking-tighter text-white">
                         Wander <span className="text-blue-600 not-italic">AI.</span>
                     </span>
-                </a>
+                </Link>
 
                 {/* Hero Content */}
                 <div className="relative z-10 max-w-xl">
@@ -95,7 +147,7 @@ function Register() {
 
             {/* Right Panel */}
             <div className="flex-1 flex items-center justify-center px-4 py-10 sm:p-8 lg:p-12 relative bg-[#020203]">
-                <div className="w-full max-w-[460px] relative">
+                <div className="w-full max-w-115 relative">
 
                     {/* Mobile Brand Header */}
                     <div className="flex lg:hidden justify-start px-1 sm:px-2 mb-8">
@@ -120,9 +172,9 @@ function Register() {
                         </h1>
                         <p className="text-gray-600 font-black italic uppercase tracking-tighter text-xs sm:text-sm">
                             Existing Account ?{" "}
-                            <a href="#" className="text-blue-500 hover:text-blue-400 transition-all underline-offset-4 underline">
+                            <Link to="/login" className="text-blue-500 hover:text-blue-400 transition-all underline-offset-4">
                                 Login Now
-                            </a>
+                            </Link>
                         </p>
                     </div>
 
@@ -130,29 +182,50 @@ function Register() {
                     <div className="bg-[#08080a] rounded-3xl sm:rounded-[40px] border border-white/5 p-1.5 sm:p-2 shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent" />
 
-                        <form className="p-5 sm:p-8 space-y-5">
+                        {/* Conditional Rendering */}
+                        {errors.general && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="mx-6 mt-6 p-4 bg-red-950/20 rounded-2xl border border-red-900/20 text-[10px] font-black uppercase tracking-widest flex items-center gap-4 ">
+                                <ShieldCheck size={18} className="animate-pulse" />
+                            </motion.div>
+                        )}
+
+                        <form className="p-5 sm:p-8 space-y-5" onSubmit={handleSubmit}>
                             <TacticalInput
                                 label="Identity Label"
                                 icon={User}
                                 type="text"
                                 placeholder="Marco Polo"
+                                value={form.name}
+                                error={errors.name}
+                                onChange={(e) => setFormData({ ...form, name: e.target.value })}
                             />
                             <TacticalInput
                                 label="Email Address"
                                 icon={Mail}
                                 type="email"
                                 placeholder="admin@onlineittuts.com"
+                                value={form.email}
+                                error={errors.email}
+                                onChange={(e) => setFormData({ ...form, email: e.target.value })}
                             />
                             <TacticalInput
                                 label="Security Passkey"
                                 icon={Lock}
                                 type="password"
                                 placeholder="••••••••••"
+                                value={form.password}
+                                error={errors.password}
+                                onChange={(e) => setFormData({ ...form, password: e.target.value })}
                             />
                             <button
                                 type="submit"
+                                disabled={loading}
                                 className="w-full group relative bg-blue-600 hover:bg-blue-500 text-white py-4 sm:py-6 rounded-2xl font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-xs transition-all flex items-center justify-center gap-3 shadow-2xl shadow-blue-950/20 mt-6 sm:mt-8 active:scale-95 disabled:opacity-50">
-                                Register Now
+                                {loading ? (<Loader2/>) : <>
+                                Register Now<ChevronRight/></>}
                             </button>
                         </form>
                     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -7,20 +8,39 @@ import BudgetEstimator from "./pages/BudgetEstimator";
 import SavedTrips from "./pages/SavedTrips";
 import TripDetail from "./pages/TripDetail";
 import TripPlanner from "./pages/TripPlanner";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
+  const { user, loading } = useAuth();
   return (
-    <div className="min-h-screen bg-[#020203] text-gray-400 font-sans selection:bg-blue-600 selection:text-white overflow-hidden">
-      {/* <Home /> */}
-      {/* <Register /> */}
-      {/* <Login /> */}
-      {/* <Dashboard /> */}
-      {/* <BudgetEstimator /> */}
-      {/* <SavedTrips /> */}
-      {/* <TripDetail /> */}
-      <TripPlanner />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-[#020203] text-gray-400 font-sans selection:bg-blue-600 selection:text-white overflow-hidden">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/budget" element={<BudgetEstimator />} />
+          <Route path="/trips" element={<SavedTrips />} />
+          <Route path="/trips/:id" element={<TripDetail />} />
+          <Route path="/plan" element={<TripPlanner />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+// DEVELOPEMENT FLOW :
+
+// {/* <Home /> */ }             responsive
+// {/* <Register /> */ }         responsive
+// {/* <Login /> */ }            responsive
+// {/* <Dashboard /> */ }        responsive
+// {/* <BudgetEstimator /> */ }  responsive
+// {/* <SavedTrips /> */ }
+// {/* <TripDetail /> */ }
+// {/* <TripPlanner /> */ }
