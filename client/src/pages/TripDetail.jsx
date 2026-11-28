@@ -1,17 +1,27 @@
 // Core React & UI Icon Imports
 import React from 'react';
-import { 
-    MapPin, 
-    Calendar, 
-    Users, 
-    Wallet, 
-    Share2 
+import {
+    MapPin,
+    Calendar,
+    Users,
+    Wallet,
+    Share2,
+    Sun,
+    Moon,
+    Coffee,
+    Building2,
+    TrainFront,
+    ShieldCheck
 } from 'lucide-react';
 
 // Animation & Custom Component Imports
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import HeaderBadge from '../components/HeaderBadge';
+import TimelineCard from '../components/TimelineCard';
+import AiInsightCard from "../components/AiInsightCard";
+import MapView from '../components/MapView';
+import LogisticRow from '../components/LogisticRow';
 
 export default function TripDetail() {
     return (
@@ -20,9 +30,9 @@ export default function TripDetail() {
             {/* Global Top Navigation Bar */}
             <Navbar />
 
-            {/* Hero Banner Section */}
+            {/* Hero Section */}
             <section className="relative h-[70vh] w-full flex items-end pb-20 overflow-hidden">
-                {/* Full-Bleed Background Cover Image & Gradient Overlay */}
+                {/* Full-Bleed Destination Image & Gradient Vignette */}
                 <div className="absolute inset-0 z-0">
                     <img src="https://images.unsplash.com/photo-1607836046730-3317bd58a31b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" className="w-full h-full object-cover scale-105" />
 
@@ -31,11 +41,11 @@ export default function TripDetail() {
                     </div>
                 </div>
 
-                {/* Foreground Hero Content & Telemetry Badges */}
+                {/* Foreground Hero Title, Metadata Badges & Actions */}
                 <div className="container mx-auto px-6 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
 
-                        {/* Trip Status Pill & Location Tag */}
+                        {/* Trip Status Pill & Location Label */}
                         <div className="flex items-center gap-3 mb-6">
                             <span className="px-4 py-1.5 bg-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-blue-600/20">
                                 Confirmed Trip
@@ -45,17 +55,16 @@ export default function TripDetail() {
                             </p>
                         </div>
 
-                        {/* Main Destination Heading */}
-                        <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic leading-[0.85] mb-10">
-                            City Name <span className="text-blue-600">.</span>
+                        {/* Destination City Heading */}
+                        <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter italic leading-[0.85] mb-10"> City Name <span className="text-blue-600">.</span>
                         </h1>
 
-                        {/* Trip Metadata Badges, Budget Card & Share Action */}
+                        {/* Trip Telemetry Badges, Total Investment & Share Button */}
                         <div className="flex flex-wrap items-center gap-6">
                             <HeaderBadge icon={Calendar} label="Duration" value={`Days`} />
-                            <HeaderBadge icon={Users} label="Group" value={`Travelers`} />
+                            <HeaderBadge icon={Users} label="Group" value={`Number of Travelers`} />
 
-                            {/* Total Investment Highlight Card */}
+                            {/* Total Budget Investment Card */}
                             <div className="bg-blue-600/10 backdrop-blur-xl border border-blue-500/30 px-6 py-3 rounded-2xl flex items-center gap-4 group-hover:bg-blue-600/20 transition-all shadow-2xl">
                                 <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white">
                                     <Wallet size={18} />
@@ -73,16 +82,78 @@ export default function TripDetail() {
                                 </div>
                             </div>
 
-                            {/* Share Trip Button */}
+                            {/* Share / PDF Export Action Button */}
                             <div className="ml-auto flex gap-3">
+                                {/* I will update PDF Component */}
                                 <button className="p-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl hover:bg-white/20 transition-all">
-                                    <Share2 size={20} />             
+                                    <Share2 size={20} />
                                 </button>
                             </div>
                         </div>
                     </motion.div>
                 </div>
             </section>
+
+            {/* Content Grid: Left Itinerary Timeline + Right Sticky Map & Intel */}
+            <main className="container mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-12 gap-16">
+                {/* Left Column: Day Selector, Daily Schedule & AI Insights */}
+                <div className="lg:col-span-8 space-y-12">
+                    <div className="bg-[#0a0a0b] border border-white/5 rounded-4xl p-8">
+                        {/* Horizontal Day Tabs Bar */}
+                        <div className="flex items-center gap-2 overflow-x-auto pb-4 border-b border-white/5 scrollbar-hide mb-12">
+
+                            {/* map method */}
+                            <button className={`px-8 py-4 rounded-2xl text-xs font-black uppercase transition-all whitespace-nowrap`}>
+                                Day 1
+                            </button>
+                        </div>
+
+                        {/* Morning / Afternoon / Evening Activity Timeline */}
+                        <div className="space-y-4">
+                            <TimelineCard time="09:00 AM" period="Morning" icon={Sun} data="" />
+                            <TimelineCard time="01:00 PM" period="Afternoon" icon={Coffee} data="" />
+                            <TimelineCard time="07:00 PM" period="Evening" icon={Moon} data="" />
+                        </div>
+                    </div>
+                    {/* AI Strategic Insights Card */}
+                        <AiInsightCard />
+                </div>
+
+                {/* Right Side: Sticky Interactive Map & Logistics Sidebar */}
+                <aside className="lg:col-span-4 space-y-8">
+                    <div className="sticky top-24 space-y-8">
+                        {/* Destination Map Container */}
+                        <div className="h-100 bg-black rounded-[2.5rem] overflow-hidden border border-white/10 relative shadow-2xl">
+                            <MapView />
+                        </div>
+
+                        {/* Operations Hub & Essential Intel Card */}
+                        <div className="bg-[#0a0a0b] border border-white/5 rounded-[2.5rem] p-8 space-y-8 shadow-2xl relative overflow-hidden">
+                            {/* Background Glow */}
+                            <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-600/10 blur-[100px]" />
+
+                            {/* Accommodation & Transit Logistics */}
+                            <div>
+                                <h3 className="text-[10px] font-black text-blue-500 uppercase tracking-[0.4em] mb-6"> Operations Hub
+                                </h3>
+                                <div className="space-y-6">
+                                    <LogisticRow icon={Building2} label="Primary Residence" value="Dummy" />
+                                    <LogisticRow icon={TrainFront} label="Transit Network" value="Dummy" />
+                                </div>
+                            </div>
+
+                            {/* Safety & Regional Verification Intel */}
+                            <div className="p-8 border-t border-white/5 space-y-6">
+                                <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em]">
+                                    Essential Intel
+                                </h3>
+                                <LogisticRow icon={ShieldCheck} label="Safety Protocol" value="Region Verified - Safe" />
+
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </main>
         </div>
     );
 }
