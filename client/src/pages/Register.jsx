@@ -128,7 +128,7 @@ function Register() {
 
                     {/* Main Form Card */}
                     <div className="bg-[#08080a] rounded-3xl sm:rounded-[40px] border border-white/5 p-1.5 sm:p-2 shadow-2xl relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent" />
+                        <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent" />
 
                         <form className="p-5 sm:p-8 space-y-5">
                             <TacticalInput
